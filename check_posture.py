@@ -1,3 +1,4 @@
+# importing necessary libraries
 import cv2
 import os
 import pickle
@@ -11,6 +12,7 @@ model=pickle.load(open("KNN_POSTURE_MODEL.pkl","rb"))
 le=pickle.load(open("label_encoder.pkl","rb"))
 
 
+# pose_prediction function
 
 def predict_pose(img):
     data={}
@@ -36,7 +38,9 @@ def predict_pose(img):
     except Exception as e:
         print(e)
         return img,"NO ONE IN FRAME"
-        
+
+# reading the video thorugh camera
+   
 cap=cv2.VideoCapture(0)
 
 while True:
